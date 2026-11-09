@@ -1,0 +1,7 @@
+.env
+.git
+data/
+*.db
+README.md
+node_modules
+dist

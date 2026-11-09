@@ -1,0 +1,17 @@
+services:
+  zy-feedback:
+    build: .
+    image: zy-feedback:latest
+    container_name: zy-feedback
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-6080}:6080"
+    environment:
+      ADMIN_USER: ${ADMIN_USER:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Set ADMIN_PASSWORD in the .env file}
+      APP_TIMEZONE: ${APP_TIMEZONE:-Asia/Manila}
+    volumes:
+      - zy-feedback-data:/data
+
+volumes:
+  zy-feedback-data:
